@@ -8,6 +8,9 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  schedule:
+    #格林尼治时间22：11，东八区北京时间6：11
+    - cron: 11 22 * * *
 
 jobs:
   build:
@@ -29,6 +32,7 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+    - run: node ks_js.js
     
     
     
